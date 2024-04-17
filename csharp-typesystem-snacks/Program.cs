@@ -1,6 +1,7 @@
 ﻿using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Runtime.ConstrainedExecution;
 using System;
+using System.Xml.Linq;
 
 namespace csharp_typesystem_snacks
 {
@@ -111,7 +112,50 @@ namespace csharp_typesystem_snacks
 
             //Snack 7 Crea un array vuoto. Chiedi per 6 volte all’utente di inserire un numero, se è dispari inseriscilo nell’array.
             //creo array vuoto
-            int[] dispari;
+            int[] arrDispari = new int[6];
+            //sett il suo indice a 0
+            int index = 0;
+
+            //chiedo a user di inserire 6 volte un numero
+            for(int i = 1; i <= 6; i++) 
+            {
+                Console.WriteLine($"Inserisci il {i}° numero");
+                int num = Convert.ToInt32(Console.ReadLine());
+                //se il numero è dispari, lo aggiungo all'array vuoto
+                if(num % 2 != 0 ) 
+                {
+                    //all indice dell array, verra inserito in num dispari
+                    arrDispari[index] = num;
+                    // e passa all'indice successivo
+                    index++;
+                }
+            }
+            // Stampa l'array con i numeri dispari
+            Console.WriteLine("Numeri dispari inseriti:");
+            for (int x = 0; x < index; x++)
+            {
+                Console.WriteLine(arrDispari[x] + " ");
+            }
+
+            // Snack 8 Crea un array di numeri interi e fai la somma di tutti gli elementi che sono in posizione dispari.
+            //creo array
+            int[] numbers = { 1, 9, 2, 8, 3, 7, 4, 5, 6 };
+            //setto la somma a 0
+            int add = 0;
+
+            //sommo i numeri con index dispari
+            for(int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] % 2 != 0) 
+                {
+                    add += numbers[i];
+                }
+            }
+            Console.WriteLine($"La somma dei numeri dispari inclusi nell'array è: {add}");
+
+            // Snack 9 Crea un array vuoto e chiedi all’utente un numero da inserire nell’array.Continua a chiedere i numeri all’utente e a inserirli nell’array, fino a quando la somma degli elementi è minore di 50.
+            //creo array vuoto 
+            int[] numCollection = new int[20];
 
         }
     }
