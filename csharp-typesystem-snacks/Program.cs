@@ -154,8 +154,64 @@ namespace csharp_typesystem_snacks
             Console.WriteLine($"La somma dei numeri dispari inclusi nell'array è: {add}");
 
             // Snack 9 Crea un array vuoto e chiedi all’utente un numero da inserire nell’array.Continua a chiedere i numeri all’utente e a inserirli nell’array, fino a quando la somma degli elementi è minore di 50.
-            //creo array vuoto 
-            int[] numCollection = new int[20];
+            //creo arr vuoto
+            int[] arrVuoto = new int[20];
+            //setto il suo indice a 0
+            int indice = 0;
+            // inizializzazzione variabile per tenere traccia della somma
+            int aggiungi = 0;
+            //ciclo while che finche la somma dei numeri non raggiunge 50, continua a chiedere un numero
+            while (aggiungi < 50 && indice < arrVuoto.Length)
+            {
+                //chiedo il numero all'utente
+                Console.WriteLine("Inserisci un numero ");
+                int userInt = Convert.ToInt32(Console.ReadLine());
+
+                //aggiungo il numero all'array
+                arrVuoto[indice] = userInt;
+                indice++;
+                // aggiorno la somma
+                aggiungi += userInt;
+            }
+            // Stampa l'array
+            Console.WriteLine("Numeri inseriti:");
+            for (int i = 0; i < indice; i++)
+            {
+                Console.WriteLine(arrVuoto[i] + " ");
+            }
+
+            //Snack 10:  Fai inserire un numero, che chiameremo N, all’utente.
+            //Genera N array, ognuno formato da 10 numeri casuali tra 1 e 100.
+            //Ogni volta che ne crei uno, stampalo a schermo.
+
+            //chiedo un numero all'utente
+            Console.WriteLine("Inserisci un numero");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            //creo array con lunghezza data da'll'utente
+            int[] arrayN = new int[n];
+            int arrIndex = 0;
+
+            //ciclo l'array e ad ogni iterazione aggiungo un numero casuale
+            for(int i = 0;i < arrayN.Length; i++)
+            {
+                // inizializzo una variabile con valore random
+                Random r = new Random();
+                int rInt = r.Next(1, 100);
+                //push il numero nell'array
+
+                arrayN[arrIndex] = rInt;
+
+                // passo all'inidce successivo
+                arrIndex++;
+            }
+
+            // Stampo l'array a schermo
+            
+            for(int i = 0; i <arrayN.Length; i++)
+            {
+                Console.Write(arrayN[i] + " ");
+            }
 
         }
     }
